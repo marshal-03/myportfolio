@@ -7,7 +7,7 @@ const NavigationMenu = ({
   setActiveItem,
   variants,
   itemVariants,
-  onItemClick = () => {},
+  onItemClick = () => { },
 }) => {
   const navItems = [
     { label: "Home", icon: Home },
@@ -43,34 +43,34 @@ const NavigationMenu = ({
             style={
               isActive
                 ? {
-                    background: "#EBEBEB",
-                    borderTop: "1.6px solid #002CD7",
-                    borderBottom: "1.6px solid #002CD7",
-                    borderLeft: "1.6px solid #002CD7",
-                    borderRight: "none",
-                    padding: "8px 16px",
-                    marginLeft: "10px",
-                    marginRight: "0px",
-                    overflow: "hidden",
-                  }
+                  background: "#EBEBEB",
+                  borderTop: "1.6px solid #002CD6",
+                  borderBottom: "1.6px solid #002CD6",
+                  borderLeft: "1.6px solid #002CD6",
+                  borderRight: "none",
+                  padding: "8px 16px",
+                  marginLeft: "10px",
+                  marginRight: "0px",
+                  overflow: "hidden",
+                }
                 : {
-                    background: "transparent",
-                    borderTop: "1.6px solid transparent",
-                    borderBottom: "1.6px solid transparent",
-                    borderLeft: "1.6px solid transparent",
-                    borderRight: "none",
-                    padding: "8px 16px",
-                    marginLeft: "10px",
-                    marginRight: "0px",
-                    overflow: "hidden",
-                  }
+                  background: "transparent",
+                  borderTop: "1.6px solid transparent",
+                  borderBottom: "1.6px solid transparent",
+                  borderLeft: "1.6px solid transparent",
+                  borderRight: "none",
+                  padding: "8px 16px",
+                  marginLeft: "10px",
+                  marginRight: "0px",
+                  overflow: "hidden",
+                }
             }
             onMouseEnter={(e) => {
               if (!isActive) {
                 e.currentTarget.style.background = "#EBEBEB";
-                e.currentTarget.style.borderTop = "1.6px solid #002CD7";
-                e.currentTarget.style.borderBottom = "1.6px solid #002CD7";
-                e.currentTarget.style.borderLeft = "1.6px solid #002CD7";
+                e.currentTarget.style.borderTop = "1.6px solid #002CD6";
+                e.currentTarget.style.borderBottom = "1.6px solid #002CD6";
+                e.currentTarget.style.borderLeft = "1.6px solid #002CD6";
               }
             }}
             onMouseLeave={(e) => {
@@ -84,16 +84,14 @@ const NavigationMenu = ({
           >
             <Icon
               size={20}
-              className={`${
-                isActive ? "text-blue-700" : "text-gray-600 hover:text-blue-700"
-              }`}
+              className={`${isActive ? "text-primary" : "text-gray-600 hover:text-primary"
+                }`}
             />
             <span
-              className={`${
-                isActive
-                  ? "font-semibold text-blue-700 text-[17px]"
+              className={`${isActive
+                  ? "font-semibold text-primary text-[17px]"
                   : "text-[16px] text-gray-700"
-              }`}
+                }`}
             >
               {item.label}
             </span>

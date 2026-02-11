@@ -11,8 +11,8 @@ import {
   Linkedin,
   Instagram,
   Phone,
-  MapPin,
   ArrowRight,
+  Github,
 } from "lucide-react";
 
 import { FaBehance } from "react-icons/fa";
@@ -55,16 +55,14 @@ const Sidebar = ({
       icon: Instagram,
       url: "https://www.instagram.com/uiux_grid/",
     },
-  ];
-
-  const contactItems = [
-    { label: "+91 7510828193", icon: Phone, url: "tel:+917510828193" },
     {
-      label: "Kannur, Kerala, India",
-      icon: MapPin,
-      url: "https://www.google.com/maps/place/Kannur,+Kerala,+India",
+      label: "GitHub",
+      icon: Github,
+      url: "https://github.com/marshal-03",
     },
   ];
+
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,8 +82,9 @@ const Sidebar = ({
       {isMobile && (
         <motion.button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="fixed top-6 right-6 z-50 p-2  text-blue rounded-lg hover:bg-blue-700 transition-colors"
+          className="fixed top-6 right-6 z-50 p-2 bg-white text-primary rounded-xl shadow-lg border border-gray-100 transition-all"
           whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.05 }}
         >
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </motion.button>
@@ -95,43 +94,42 @@ const Sidebar = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           onClick={() => setIsSidebarOpen(false)}
-          className="fixed inset-0 bg-black/50 z-30"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30"
         />
       )}
 
       <motion.aside
-        initial={isMobile ? { x: -330 } : false}
-        animate={isMobile ? (isSidebarOpen ? { x: 0 } : { x: -330 }) : false}
+        initial={isMobile ? { x: "-110%" } : { opacity: 0 }}
+        animate={isMobile ? (isSidebarOpen ? { x: 0 } : { x: "-110%" }) : { opacity: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className={`fixed 
-    top-[25px] 
-    left-[25px] 
-    right-[25px] 
-    bottom-[25px] 
-    w-[330px]
-    rounded-3xl bg-white z-40 shadow-xl overflow-hidden flex flex-col
-    ${isMobile ? "fixed" : "sticky"}
-`}
-        style={!isMobile ? { height: "calc(100vh - 52px)" } : {}}
+        className={`${isMobile ? 'fixed' : 'sticky'} 
+          top-[16px] 
+          left-[16px] 
+          bottom-[16px] 
+          ${isMobile ? 'w-[280px]' : 'w-[330px]'}
+          rounded-3xl bg-white z-40 shadow-2xl overflow-hidden flex flex-col
+        `}
+        style={!isMobile ? { height: "calc(100vh - 52px)" } : { height: "calc(100vh - 32px)" }}
       >
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="p-6 flex items-center gap-2"
+          className="p-4 flex items-center gap-2"
         >
           <motion.img
             src="/profile.webp"
             alt="Marshalp"
-            className="w-16 h-16 rounded-2xl object-cover cursor-pointer "
+            className="w-16 h-16 rounded-full object-cover cursor-pointer"
             whileHover={{ scale: 1.05 }}
           />
           <div>
             <p className="font-semibold text-black text-sm">Marshalp</p>
             <a
               href="mailto:marshalp006@gmail.com"
-              className="text-gray-400 text-[13px] md:text-[12px] sm:text-[11px] truncate max-w-[140px] hover:text-blue-600 transition-colors"
+              className="text-gray-400 text-[13px] md:text-[12px] sm:text-[11px] truncate max-w-[140px] hover:text-primary transition-colors"
             >
               marshalp006@gmail.com
             </a>
@@ -142,88 +140,36 @@ const Sidebar = ({
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="py-2 space-y-2 pr-0 text=[15px]"
+          className="py-2 space-y-1 pr-0 text=[15px]"
         >
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = item.label === activeItem;
             return (
-              <motion.button
-                key={item.label}
-                variants={itemVariants}
-                whileHover={{ x: 0 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setActiveItem(item.label)}
-                className="flex items-center gap-2 rounded-l-3xl px-3 py-1 ml-[10px] w-full transition-all duration-300"
-                style={
-                  isActive
-                    ? {
-                        background: "#EBEBEB",
-                        borderTop: "1.6px solid #002CD7",
-                        borderBottom: "1.6px solid #002CD7",
-                        borderLeft: "1.6px solid #002CD7",
-                        borderRight: "none",
-                        padding: "6px 20px",
-                        marginLeft: "10px",
-                        marginRight: "0px",
-                        width: "100%",
-                        overflow: "hidden",
-                      }
-                    : {
-                        background: "transparent",
-                        borderTop: "1.6px solid transparent",
-                        borderBottom: "1.6px solid transparent",
-                        borderLeft: "1.6px solid transparent",
-                        borderRight: "none",
-                        padding: "6px 8px",
-                        marginLeft: "10px",
-                        marginRight: "0px",
-                        width: "100%",
-                        overflow: "hidden",
-                      }
-                }
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.background = "#EBEBEB";
-                    e.currentTarget.style.borderTop = "1.6px solid #002CD7";
-                    e.currentTarget.style.borderBottom = "1.6px solid #002CD7";
-                    e.currentTarget.style.borderLeft = "1.6px solid #002CD7";
-                    e.currentTarget.style.borderRight = "none";
-                    e.currentTarget.style.overflow = "hidden";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.borderTop = "1.6px solid transparent";
-                    e.currentTarget.style.borderBottom =
-                      "1.6px solid transparent";
-                    e.currentTarget.style.borderLeft =
-                      "1.6px solid transparent";
-                    e.currentTarget.style.borderRight = "none";
-                    e.currentTarget.style.overflow = "hidden";
-                  }
-                }}
-              >
-                <Icon
-                  size={20}
-                  className={`${
-                    isActive
-                      ? "text-blue-700"
-                      : "text-gray-600 hover:text-blue-700"
-                  }`}
-                />
-
-                <span
-                  className={`${
-                    isActive
-                      ? " text-blue-700 text-[16px]"
-                      : "text-[16px] text-gray-700"
-                  }`}
+              <div key={item.label} className="relative flex items-center py-0.5">
+                {isActive && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className="absolute left-1.5 h-6 w-1 bg-primary rounded-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
+                )}
+                <motion.button
+                  variants={itemVariants}
+                  whileHover={{ x: 0 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setActiveItem(item.label)}
+                  className={`
+                    flex items-center gap-3 px-4 py-2 ml-4 mr-4 w-full rounded-2xl transition-all duration-300 group
+                    ${isActive ? "bg-[#E8EEFF] text-primary" : "text-gray-500 hover:text-primary hover:bg-gray-50"}
+                  `}
                 >
-                  {item.label}
-                </span>
-              </motion.button>
+                  <Icon size={20} className={isActive ? "text-primary" : "text-gray-500 group-hover:text-primary transition-colors"} />
+                  <span className="text-[15px] font-medium">{item.label}</span>
+                </motion.button>
+              </div>
             );
           })}
         </motion.nav>
@@ -232,7 +178,7 @@ const Sidebar = ({
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="p-6 space-y-3 mt-auto"
+          className="p-4 space-y-4 mt-auto"
         >
           {socialLinks.map((item) => {
             const Icon = item.icon;
@@ -242,7 +188,7 @@ const Sidebar = ({
                 variants={itemVariants}
                 whileHover={{ x: 8 }}
                 onClick={() => window.open(item.url, "_blank")}
-                className="w-full flex items-center justify-between text-gray-600 hover:text-blue-600 cursor-pointer transition-all group"
+                className="w-full flex items-center justify-between text-gray-600 hover:text-primary cursor-pointer transition-all group"
               >
                 <div className="flex items-center gap-2">
                   <Icon size={18} />
@@ -256,29 +202,9 @@ const Sidebar = ({
             );
           })}
 
-          {contactItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.label}
-                variants={itemVariants}
-                whileHover={{ x: 8 }}
-                onClick={() => window.open(item.url, "_blank")}
-                className="w-full flex items-center justify-between text-gray-600 hover:text-blue-600 cursor-pointer transition-all group"
-              >
-                <div className="flex items-center gap-2">
-                  <Icon size={18} />
-                  <span className="text-[14px]">{item.label}</span>
-                </div>
-                <ArrowRight
-                  className="opacity-0 group-hover:opacity-100 transition-opacity"
-                  size={16}
-                />
-              </motion.div>
-            );
-          })}
+
         </motion.div>
-      </motion.aside>
+      </motion.aside >
     </>
   );
 };

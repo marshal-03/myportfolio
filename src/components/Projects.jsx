@@ -17,30 +17,28 @@ export default function Projects() {
   ];
 
   return (
-    <section className="w-full px-[25px] py-[25px] pb-0 ">
+    <section className="w-full pl-[17px] pr-[17px] py-[25px]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden p-6 sm:p-8 lg:p-10 ml-[10px]"
+        className="w-full max-w-[1400px] mx-auto rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden p-4 sm:p-6 md:p-8 lg:p-10"
       >
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-              Featured Project
-            </span>
-
-            <motion.span
-              animate={{ x: [0, 3, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-blue-600"
-            >
-              <TrendingUp className="w-5 h-5 text-blue-600" />
-            </motion.span>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E8EEFF] rounded-full w-fit">
+              <TrendingUp size={16} className="text-primary" />
+              <span className="text-primary font-semibold text-sm">
+                Featured Project
+              </span>
+            </div>
 
             <div className="ml-auto">
-              <button className="flex items-center gap-2 text-blue-600 text-sm font-medium ">
+              <button
+                onClick={() => window.open("https://www.behance.net/marshalp", "_blank")}
+                className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+              >
                 Explore all <ArrowRight size={16} />
               </button>
             </div>
@@ -48,7 +46,7 @@ export default function Projects() {
 
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 leading-tight ">
             A collection of my most{" "}
-            <span className="text-blue-600">impactful UI UX projects</span>
+            <span className="text-primary">impactful UI UX projects</span>
           </h2>
         </div>
 
@@ -59,7 +57,8 @@ export default function Projects() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="relative w-full aspect-square group"
+              className="relative w-full aspect-square group cursor-pointer"
+              onClick={() => window.open("https://www.behance.net/marshalp", "_blank")}
             >
               <TiltedCard
                 imageSrc={project.image}
@@ -72,7 +71,7 @@ export default function Projects() {
                 <motion.button
                   initial={{ scale: 0.9, opacity: 0 }}
                   whileHover={{ scale: 1.05 }}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-blue-600 p-2 rounded-full pointer-events-auto"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-primary p-2 rounded-full pointer-events-auto"
                   aria-label="open project"
                 >
                   <ArrowRight size={18} />

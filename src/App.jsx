@@ -12,7 +12,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
-  
+
   const heroRef = useRef(null)
   const aboutRef = useRef(null)
   const skillsRef = useRef(null)
@@ -44,8 +44,8 @@ function App() {
       for (let section of sections) {
         if (section.ref.current) {
           const rect = section.ref.current.getBoundingClientRect()
-          
-         
+
+
           if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
             setActiveItem(section.label)
             break
@@ -81,53 +81,48 @@ function App() {
 
   return (
     <div style={{ display: 'flex', backgroundColor: '#EBEBEB', minHeight: '100vh', margin: 0, padding: 0 }}>
- 
-      <Sidebar 
+
+      <Sidebar
         activeItem={activeItem}
         setActiveItem={handleNavClick}
-        isMobile={isMobile} 
-        isSidebarOpen={isSidebarOpen} 
-        setIsSidebarOpen={setIsSidebarOpen} 
+        isMobile={isMobile}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
       />
 
-      <main style={{ 
-      width: '100%', 
-      backgroundColor: '#EBEBEB', 
-      margin: 0, 
-      padding: "var(--outer-gap)", 
-      overflowY: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 'var(--outer-gap)'
-    }}>
-     
-      <div style={{
-        padding: 'var(--outer-gap)',
+      <main style={{
+        width: '100%',
+        backgroundColor: '#EBEBEB',
+        marginLeft: isMobile ? 0 : '25px',
+        marginTop: 0,
+        marginRight: 0,
+        marginBottom: 0,
+        padding: 0,
+        overflowY: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        
+        gap: 0
       }}>
-        <section ref={heroRef}  style={{ marginBottom: 'var(--outer-gap)' }}>
+        <section ref={heroRef}>
           <Hero />
         </section>
 
-        <section ref={aboutRef}  style={{ marginBottom: 'var(--outer-gap)' }}>
+        <section ref={aboutRef}>
           <About />
         </section>
 
-        <section ref={skillsRef}  style={{ marginBottom: 'var(--outer-gap)' }}>
+        <section ref={skillsRef}>
           <Skills />
         </section>
 
-        <section ref={projectsRef}  style={{ marginBottom: 'var(--outer-gap)' }}>
+        <section ref={projectsRef}>
           <Projects />
         </section>
 
-        <section ref={contactRef} >
+        <section ref={contactRef}>
           <Contact />
         </section>
-      </div>
-    </main>
+      </main>
     </div>
   )
 }

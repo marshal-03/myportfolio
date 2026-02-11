@@ -61,7 +61,7 @@ const SocialLinks = ({ variants, itemVariants }) => {
             variants={itemVariants}
             whileHover={{ x: 8 }}
             onClick={() => window.open(item.url, "_blank")}
-            className="w-full flex items-center justify-between text-gray-600 hover:text-blue-600 cursor-pointer transition-all group"
+            className="w-full flex items-center justify-between text-gray-600 hover:text-primary cursor-pointer transition-all group"
           >
             <div className="flex items-center gap-2">
               <Icon size={18} />

@@ -59,30 +59,32 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full px-[25px] py-[25px] pb-2">
+    <section id="contact" className="w-full pl-[17px] pr-[17px] py-[25px]">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-[calc(100vw-340px)] rounded-3xl bg-black text-white overflow-hidden ml-[10px]"
+        className="relative w-full max-w-[1400px] mx-auto rounded-3xl bg-black text-white overflow-hidden"
       >
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute w-72 h-72 rounded-full bg-blue-700/20 blur-3xl animate-float top-10 right-10"></div>
-          <div className="absolute w-56 h-56 rounded-full bg-purple-700/20 blur-3xl animate-float-delayed bottom-10 left-10"></div>
-
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
           <div
-            ref={ovalRef}
-            className="absolute w-96 h-80 border-2 border-blue-500/30 blur-sm"
+            className="absolute w-[500px] h-[500px] border border-[#002CD6]/30 rounded-[40%] 
+                       blur-[2px] -left-20 -top-20 -rotate-12"
             style={{
-              left: "-50px",
-              top: "80px",
-              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+              boxShadow: "0 0 40px rgba(0, 44, 214, 0.2), inset 0 0 40px rgba(0, 44, 214, 0.2)"
+            }}
+          ></div>
+          <div
+            className="absolute w-[600px] h-[400px] border border-purple-600/20 rounded-[50%] 
+                       blur-[1px] -right-20 bottom-10 rotate-12"
+            style={{
+              boxShadow: "0 0-30px rgba(124, 58, 237, 0.1), inset 0 0 30px rgba(124, 58, 237, 0.1)"
             }}
           ></div>
         </div>
 
-        <div className="p-6 sm:p-8 lg:p-10 relative z-10">
+        <div className="p-4 sm:p-6 md:p-8 lg:p-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <motion.div
               variants={containerVariants}
@@ -93,27 +95,20 @@ export default function Contact() {
             >
               <motion.div
                 variants={itemVariants}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1 text-primary mb-2"
               >
-                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">
-                  Contact
-                </span>
-                <motion.span
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-blue-400"
-                >
-                  <TrendingUp size={14} />
-                </motion.span>
+                <span className="text-[14px] font-medium" style={{ fontFamily: 'Poppins' }}>Contact</span>
+                <TrendingUp size={14} />
               </motion.div>
+
 
               <div className="space-y-3">
                 <motion.h2
                   variants={itemVariants}
-                  className="font-poppins font-medium "
+                  className="font-poppins font-medium text-white"
                   style={{
-                    fontSize: "41px",
-                    lineHeight: "56px",
+                    fontSize: "clamp(24px, 5vw, 41px)",
+                    lineHeight: "clamp(32px, 6vw, 56px)",
                     letterSpacing: "0%",
                     fontFamily: "Poppins",
                   }}
@@ -124,12 +119,12 @@ export default function Contact() {
                 <motion.div
                   variants={itemVariants}
                   className="inline-flex items-center gap-2 cursor-pointer"
-                  whileHover={{ x: 10, color: "#0020A0" }}
+                  whileHover={{ x: 10, color: "#001AA3" }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    fontSize: "41px",
-                    lineHeight: "56px",
+                    fontSize: "clamp(24px, 5vw, 41px)",
+                    lineHeight: "clamp(32px, 6vw, 56px)",
                     fontWeight: "500",
                     fontFamily: "Poppins",
                     color: "#002CD6",
@@ -148,18 +143,15 @@ export default function Contact() {
 
               <motion.p
                 variants={itemVariants}
-                className="ml-auto"
+                className="mt-8 lg:mt-12 text-gray-400"
                 transition={{ duration: 0.3 }}
                 style={{
                   fontFamily: "Poppins",
                   fontWeight: "400",
-                  fontStyle: "regular",
                   fontSize: "18px",
                   lineHeight: "26px",
-                  letterSpacing: "0%",
-                  textAlign: "right",
-                  color: "#D1D5DB",
-                  maxWidth: "300px",
+                  maxWidth: "400px",
+                  alignSelf: "flex-end"
                 }}
               >
                 Great products start with understanding. We listen, design with
@@ -189,8 +181,9 @@ export default function Contact() {
                       placeholder=" "
                       rows="2"
                       className="peer w-full px-0 py-3 sm:py-4 bg-transparent text-white text-sm 
-                                 border-b border-gray-600 focus:border-blue-500
-                                 focus:outline-none transition-all resize-none"
+                                  border-b border-gray-600 focus:border-primary
+                                  focus:outline-none transition-all resize-none"
+                      style={{ fontFamily: 'Poppins' }}
                     />
                   ) : (
                     <input
@@ -200,8 +193,9 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder=" "
                       className="peer w-full px-0 py-3 sm:py-4 bg-transparent text-white text-sm 
-                                 border-b border-gray-600 focus:border-blue-500
-                                 focus:outline-none transition-all"
+                                  border-b border-gray-600 focus:border-primary
+                                  focus:outline-none transition-all"
+                      style={{ fontFamily: 'Poppins' }}
                     />
                   )}
 
@@ -220,14 +214,15 @@ export default function Contact() {
                       peer-[&:not(:placeholder-shown)]:text-xs
                       peer-[&:not(:placeholder-shown)]:text-gray-300
                     "
+                    style={{ fontFamily: 'Poppins' }}
                   >
                     {field === "name"
                       ? "Your Name"
                       : field === "email"
-                      ? "Email Address"
-                      : field === "subject"
-                      ? "Subject"
-                      : "Message"}
+                        ? "Email Address"
+                        : field === "subject"
+                          ? "Subject"
+                          : "Message"}
                   </label>
                 </motion.div>
               ))}
@@ -240,8 +235,9 @@ export default function Contact() {
                 className="w-full px-4 py-3 sm:py-4 text-white font-semibold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 transition-all duration-300"
                 style={{
                   background:
-                    "linear-gradient(90deg, #5B7AF3 0%, #002CD7 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
+                    "linear-gradient(90deg, #5B7AF3 0%, #002CD6 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
                   marginTop: "8px",
+                  fontFamily: "Poppins",
                 }}
               >
                 <span>Submit</span>
@@ -251,6 +247,6 @@ export default function Contact() {
           </div>
         </div>
       </motion.div>
-    </section>
+    </section >
   );
 }

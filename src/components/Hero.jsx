@@ -22,15 +22,15 @@ const HeroSection = () => {
   const bottomText = "Digital product";
 
   return (
-    <section className="w-full px-[25px]  pt-[8px]">
+    <section className="w-full pl-[17px] pr-[17px] py-[25px]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="
-      w-full max-w-[1400px] rounded-3xl bg-white border border-gray-100 shadow-lg 
+      w-full max-w-[1400px] mx-auto rounded-3xl bg-white border border-gray-100 shadow-lg 
       overflow-hidden
-      p-6 sm:p-8 lg:p-10 ml-[10px] mr-[25px] relative min-h-[500px] flex flex-col
+      p-4 sm:p-6 md:p-8 lg:p-10 relative min-h-[400px] sm:min-h-[500px] flex flex-col
     "
       >
         <div className="flex flex-col space-y-6">
@@ -59,11 +59,11 @@ const HeroSection = () => {
             <motion.h1
               className="overflow-hidden"
               style={{
-                fontFamily: "poiret one",
+                fontFamily: '"Rekgiva", "Poppins", sans-serif',
                 fontSize: "clamp(30px, 5vw, 60px)",
                 lineHeight: "1.2",
-                fontWeight: 700,
-                letterSpacing: "1px",
+                fontWeight: 400,
+                letterSpacing: "0px",
               }}
             >
               {headingText.split("").map((char, i) => (
@@ -81,13 +81,13 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.h1
-              className="text-blue-600 overflow-hidden"
+              className="text-primary overflow-hidden"
               style={{
-                fontFamily: "poiret one",
+                fontFamily: '"Rekgiva", "Poppins", sans-serif',
                 fontSize: "clamp(30px, 5vw, 57px)",
                 lineHeight: "1.2",
-                fontWeight: 700,
-                letterSpacing: "-0.1px",
+                fontWeight: 400,
+                letterSpacing: "0px",
               }}
             >
               {blueText.split("").map((char, i) => (
@@ -107,11 +107,11 @@ const HeroSection = () => {
             <motion.h1
               className="overflow-hidden"
               style={{
-                fontFamily: "poiret one",
+                fontFamily: '"Rekgiva", "Poppins", sans-serif',
                 fontSize: "clamp(28px, 5vw, 57px)",
                 lineHeight: "1.3",
-                fontWeight: 700,
-                letterSpacing: "-0.1px",
+                fontWeight: 400,
+                letterSpacing: "0px",
               }}
             >
               {bottomText.split("").map((char, i) => (
@@ -137,7 +137,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               style={{
                 background:
-                  "linear-gradient(90deg, #5B7AF3 0%, #002CD7 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
+                  "linear-gradient(90deg, #5B7AF3 0%, #002CD6 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
               }}
               className="px-6 py-3 text-white rounded-full font-semibold flex items-center gap-2 text-sm"
             >
@@ -151,7 +151,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               style={{
                 background:
-                  "linear-gradient(90deg, #5B7AF3 0%, #002CD7 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
+                  "linear-gradient(90deg, #5B7AF3 0%, #002CD6 47.12%, #133CDD 58.17%, #5B7AF3 100%)",
               }}
               className="px-6 py-3 text-white rounded-full font-semibold flex items-center gap-2 text-sm cursor-pointer"
             >
@@ -181,7 +181,7 @@ const HeroSection = () => {
               }}
             >
               Let's talk
-              <span className="w-8 h-8 sm:w-9 sm:h-9 bg-[#002CD7] rounded-full flex items-center justify-center">
+              <span className="w-8 h-8 sm:w-9 sm:h-9 bg-[#002CD6] rounded-full flex items-center justify-center">
                 <ArrowUpRight size={16} color="white" />
               </span>
             </motion.button>

@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#002CD7",
-        "primary-dark": "#0022A8",
+        primary: "#002CD6",
+        "primary-dark": "#001AA3",
       },
       fontFamily: {
         poiret: ["Poiret One", "sans-serif"],
