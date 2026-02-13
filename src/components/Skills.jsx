@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   PenTool,
- Lightbulb,
-  Palette, 
+  Lightbulb,
+  Palette,
   Layers,
   ArrowUpRight,
   TrendingUp
@@ -91,8 +91,8 @@ const SkillsSection = () => {
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
       scale: 0.8,
       rotateX: 20
@@ -112,30 +112,24 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="w-full px-[25px] py-[25px] pb-0">
+    <section className="w-full pl-[17px] pr-[17px] py-[25px]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full max-w-[1400px] rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden p-8 sm:p-10 lg:p-12 ml-[10px] relative min-h-[500px]"
+        className="w-full max-w-[1400px] mx-auto rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden p-6 sm:p-8 md:p-10 lg:p-12 relative min-h-[400px] sm:min-h-[500px]"
       >
-       
+
         <div className="mb-8">
           <div className="flex flex-col gap-2">
-            <motion.div className="flex items-center gap-1">
-              <p className="text-blue-600 text-sm font-semibold">
+            <motion.div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E8EEFF] rounded-full w-fit mb-2">
+              <TrendingUp size={16} className="text-primary" />
+              <span className="text-primary font-semibold text-sm">
                 My Design Skill
-              </p>
-              <motion.span
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-blue-600 "
-              >
-                <TrendingUp size={18} />
-              </motion.span>
+              </span>
             </motion.div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mt-4 mb-4">
-              UI/UX Design Skills <span className="text-blue-600">that Drive Impact</span>
+              UI/UX Design Skills <span className="text-primary">that Drive Impact</span>
             </h2>
           </div>
         </div>
@@ -163,13 +157,12 @@ const SkillsSection = () => {
                 onMouseMove={(e) => handleMouseMove(e, skill.id)}
                 onMouseLeave={handleMouseLeave}
               >
-              
+
                 <div
-                  className={`relative h-full p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 transition-all duration-300 overflow-hidden ${
-                    isHovered ? 'border-2 border-blue-600 shadow-lg' : 'border border-gray-200'
-                  }`}
+                  className={`relative h-full p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 transition-all duration-300 overflow-hidden ${isHovered ? 'border-2 border-primary shadow-lg' : 'border border-gray-200'
+                    }`}
                 >
-               
+
                   {isHovered && (
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -179,26 +172,26 @@ const SkillsSection = () => {
                       style={{
                         left: `${glarePos.x - 64}px`,
                         top: `${glarePos.y - 64}px`,
-                        background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(96, 165, 250, 0.5) 100%)'
+                        background: 'linear-gradient(135deg, rgba(0, 44, 214, 0.9) 0%, rgba(96, 165, 250, 0.5) 100%)'
                       }}
                     />
                   )}
 
-               
+
                   <motion.div
                     animate={isHovered ? { y: -2 } : { y: 0 }}
                     transition={{ duration: 0.3 }}
                     className="relative z-10 flex flex-col h-full"
                   >
-                   
+
                     <div className="flex justify-between items-start mb-4">
                       <motion.div
                         animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <IconComponent 
-                          size={28} 
-                          className={`transition-colors ${isHovered ? 'text-blue-600' : 'text-gray-700'}`}
+                        <IconComponent
+                          size={28}
+                          className={`transition-colors ${isHovered ? 'text-primary' : 'text-gray-700'}`}
                         />
                       </motion.div>
 
@@ -206,9 +199,9 @@ const SkillsSection = () => {
                         animate={isHovered ? { scale: 1.2, x: 2, y: -2 } : { scale: 1, x: 0, y: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <ArrowUpRight 
+                        <ArrowUpRight
                           size={20}
-                          className={`transition-colors ${isHovered ? 'text-blue-600' : 'text-gray-400'}`}
+                          className={`transition-colors ${isHovered ? 'text-primary' : 'text-gray-400'}`}
                         />
                       </motion.div>
                     </div>

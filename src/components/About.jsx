@@ -20,17 +20,17 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="w-full px-[25px] py-[25px] pb-0 ">
+    <section className="w-full pl-[17px] pr-[17px] py-[25px]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden ml-[10px] flex flex-col lg:flex-row"
+        className="w-full max-w-[1400px] mx-auto rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden flex flex-col lg:flex-row"
       >
         <motion.div
           variants={itemVariants}
-          className="lg:w-[400px] h-[350px] sm:h-[400px] lg:h-auto flex-shrink-0 overflow-hidden relative"
+          className="lg:w-[400px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-auto flex-shrink-0 overflow-hidden relative"
           style={{ borderRadius: "0 24px 24px 0" }}
         >
           <img
@@ -50,18 +50,12 @@ const AboutSection = () => {
           <div className="space-y-5 sm:space-y-6">
             <motion.div
               variants={itemVariants}
-              className="flex items-center gap-2"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#E8EEFF] rounded-full w-fit mb-4"
             >
-              <span className="text-blue-600 font-semibold text-sm">
+              <TrendingUp size={16} className="text-primary" />
+              <span className="text-primary font-semibold text-sm">
                 About me
               </span>
-              <motion.span
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-blue-600"
-              >
-                <TrendingUp size={16} />
-              </motion.span>
             </motion.div>
 
             <motion.h2
@@ -69,7 +63,7 @@ const AboutSection = () => {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-medium leading-tight"
             >
               Crafting Meaningful{" "}
-              <span className="text-blue-600">Digital Experiences</span>
+              <span className="text-primary">Digital Experiences</span>
             </motion.h2>
 
             <motion.p
@@ -102,12 +96,12 @@ const AboutSection = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-3 group"
             >
-              <span className="text-blue-600 font-semibold text-sm sm:text-base">
+              <span className="text-primary font-semibold text-sm sm:text-base">
                 Learn more
               </span>
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                className="w-8 h-8 sm:w-9 sm:h-9 bg-[#002CD6] rounded-full flex items-center justify-center text-white flex-shrink-0"
               >
                 <ArrowUpRight size={16} />
               </motion.div>
